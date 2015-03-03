@@ -1,11 +1,29 @@
 {
   "name": "obj-toposort",
   "version": "1.0.0",
-  "description": "",
+  "description": "sort objects with dependencies",
+  "repository": {
+    "type": "git",
+    "url":  "https://github.com/kumavis/obj-toposort.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "object",
+    "toposort",
+    "topological",
+    "sort",
+    "sorting",
+    "graphs",
+    "graph",
+    "dependency",
+    "list",
+    "dependencies",
+    "acyclic",
+    "browser"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
