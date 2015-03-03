@@ -2,29 +2,33 @@ var toposort = require('toposort')
 
 module.exports = objToposort
 
-function objToposort(elements) {
+function objToposort(elements, idKey, depsKey) {
+  idKey = idKey || 'id'
+  depsKey = depsKey || 'deps'
   // parse out graph nodes and edges from listed deps
   var nodes = []
   var edges = []
-  for (var name in elements) {
-    var element = elements[name]
-    nodes.push(name)
-    var deps = element[0]
-    for (var i in deps) {
-      var dep = deps[i]
+  var idMap = {}
+  for (var index in elements) {
+    var element = elements[index]
+    var id = element[idKey]
+    idMap[id] = element
+    nodes.push(id)
+    var deps = element[depsKey] || []
+    for (var index2 in deps) {
+      var depId = deps[index2]
       // read as "name requires dep"
-      edges.push([name, dep])
+      edges.push([id, depId])
     }
   }
   // calculate ordered nodes
-  var orderedNames = toposort.array(nodes, edges).reverse()
-  // map orderedNames to data
+  var orderedIds = toposort.array(nodes, edges).reverse()
+  // map orderedIds to data
   var results = []
-  for (var i in orderedNames) {
-    var name = orderedNames[i]
-    var element = elements[name]
-    var data = element[1]
-    results.push(data)
+  for (var index in orderedIds) {
+    var id = orderedIds[index]
+    var element = idMap[id]
+    results.push(element)
   }
   return results
 }
