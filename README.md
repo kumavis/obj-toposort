@@ -1,5 +1,7 @@
 # obj-toposort
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kumavis/obj-toposort.svg)](https://greenkeeper.io/)
+
 ### Sort objects with dependencies
 
 Sort an array of objects so the dependencies are handled first.
