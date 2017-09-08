@@ -27,6 +27,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "toposort": "^0.2.10"
+    "toposort": "^1.0.3"
   }
 }
